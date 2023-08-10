@@ -21,13 +21,15 @@
           super(props);
           this.state = {
             counter: 0,
-            // text: { ToggleOn: true },
-            text: "Je ne peux pas je suis a Nagano",
+            text: { ToggleOn: true },
+            // text: "",
           };
 
           // Indispensable pour pouvoir manipuler le state depuis incrementCounter
           this.incrementCounter = this.incrementCounter.bind(this);
           this.decrementCounter = this.decrementCounter.bind(this);
+
+          //   this.remplacerParBaba = this.remplacerParBaba.bind(this);
         }
 
         render() {
@@ -63,7 +65,12 @@
                   Créer un nouveau bouton Remplacer qui va déclencher une
                   fonction remplacerParBaba
                 </p>
-                <h2>{this.state.text}</h2>
+                <button onClick={this.remplacerParBaba}>remplacer texte</button>
+                <button>
+                  {this.state.ToggleOn
+                    ? "baba"
+                    : "Je ne peux pas je suis a Nagano"}
+                </button>
               </div>
             </div>
           );
@@ -97,6 +104,19 @@
         /**
          * Remplace la valeur de text par "Baba"
          */
+
+        //  remplacerParBaba() {
+        //   this.setState({
+        //     text: "baba",
+        //   });
+        // }
+
+        // ------------------------------------------
+        remplacerParBaba = () => {
+          this.setState((change) => ({
+            ToggleOn: !change.ToggleOn,
+          }));
+        };
       }
 
       // Rendu dans le DOM
